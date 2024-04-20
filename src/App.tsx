@@ -14,11 +14,10 @@ import Navbar from "./components/Navbar";
 import ColorModeSwitch from "./components/ColorModeSwitch";
 import GamesGrid from "./components/GamesGrid";
 import GenresList from "./components/GenresList";
-import { Genre } from "./hooks/usegenres";
+import { Genre } from "./hooks/useGenres";
 import GamesDropdown from "./components/GamesDropdown";
 import { Platform } from "./hooks/usePlatforms";
 import SortGames from "./components/SortGames";
-import GamesSearch from "./components/GamesSearch";
 import GamesHeading from "./components/GamesHeading";
 
 export interface QueryObject {

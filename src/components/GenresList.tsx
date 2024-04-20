@@ -1,6 +1,5 @@
 import React from "react";
-import useGenres, { Genre } from "../hooks/usegenres";
-import useData from "../hooks/useData";
+import useGenres, { Genre } from "../hooks/useGenres";
 import {
   Button,
   HStack,
