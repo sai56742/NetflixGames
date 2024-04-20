@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios, { CanceledError } from "axios";
 import apiClient from "../services/api-client";
 import useData from "./useData";
+import { Genre } from "./usegenres";
+import { QueryObject } from "../App";
 
 export interface Platform {
   id: number;
@@ -16,10 +18,22 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top:number
+
 }
 
-
-
-const useGames =()=> useData<Game>("/games")
+const useGames = (queryobject: QueryObject) =>
+  useData<Game>(
+    "/games",
+    {
+      params: {
+        genres: queryobject.genre?.id,
+        platforms: queryobject.platform?.id,
+        ordering: queryobject.sortorder,
+        search: queryobject.searchText,
+      },
+    },
+    [queryobject]
+  );
 
 export default useGames;

@@ -5,9 +5,16 @@ import GamesCard from "./GamesCard";
 import { SimpleGrid } from "@chakra-ui/react";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GamesCardContainer from "./GamesCardContainer";
+import { Genre } from "../hooks/usegenres";
+import { Platform } from "../hooks/usePlatforms";
+import { QueryObject } from "../App";
 
-const GamesGrid = () => {
-  const { data, error, isLoading } = useGames();
+interface props {
+  selectedQuery: QueryObject;
+}
+
+const GamesGrid = ({ selectedQuery }: props) => {
+  const { data, error, isLoading } = useGames(selectedQuery);
   const array = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
@@ -18,8 +25,8 @@ const GamesGrid = () => {
         md: 2,
         sm: 1,
       }}
-      spacing={10}
-      padding={10}
+      spacing={5}
+      padding={5}
     >
       {isLoading &&
         array.map((game) => (
@@ -28,9 +35,7 @@ const GamesGrid = () => {
           </GamesCardContainer>
         ))}
       {data.map((game) => (
-        // <GamesCardContainer>
         <GamesCard game={game} />
-        // </GamesCardContainer>
       ))}
     </SimpleGrid>
   );
