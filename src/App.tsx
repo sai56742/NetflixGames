@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -25,7 +25,7 @@ export interface QueryObject {
   platform: Platform | null;
   sortorder: String;
   searchText: string;
-  rating_top: number
+  rating_top: number;
 }
 
 const App = () => {
@@ -34,6 +34,23 @@ const App = () => {
   const [selectedQuery, setSelectedQuery] = useState<QueryObject>(
     {} as QueryObject
   );
+
+  useEffect(() => {
+    var deferredPrompt;
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").then(function () {
+        console.log("Service worker registered!");
+      });
+    }
+
+    window.addEventListener("beforeinstallprompt", function (event) {
+      console.log("beforeinstallprompt fired");
+      event.preventDefault();
+      deferredPrompt = event;
+      return false;
+    });
+  }, []);
 
   return (
     <Grid
@@ -56,7 +73,6 @@ const App = () => {
 
       <Show above="lg">
         <GridItem area={"aside"} paddingLeft={5}>
-          
           <GenresList
             onSelectGenre={(genre) =>
               setSelectedQuery({ ...selectedQuery, genre })
