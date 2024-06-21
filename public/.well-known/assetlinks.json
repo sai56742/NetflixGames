@@ -4,7 +4,11 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.deeplink",
-        "sha256_cert_fingerprints": ["FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"]
+        "sha256_cert_fingerprints": [
+            "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+            "C6:EA:07:79:AC:A4:38:61:76:02:AF:4D:7F:C7:20:4F:BA:C0:35:A2:83:DA:28:A4:98:07:4A:29:89:CD:67:9A",
+            "43:70:F1:55:7A:27:3C:E9:B2:A2:4F:F1:F8:2E:A3:B1:D8:B3:7C:00:DC:AD:31:58:7F:83:9F:B2:06:3C:D7:BB"
+        ]
       }
     }
   ]
